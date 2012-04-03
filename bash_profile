@@ -1,22 +1,3 @@
-# crashplan
-crashplan () { 
-  case "$1" in
-    "load")
-      sudo launchctl load /Library/LaunchDaemons/com.crashplan.engine.plist;
-      ruby -e "sleep 1";
-    ;;
-    "unload")
-      sudo launchctl unload /Library/LaunchDaemons/com.crashplan.engine.plist;
-    ;;
-    *)
-      echo -e "Usage:\n   crashplan load\n   crashplan unload\n";
-    ;;
-  esac
-  echo -e "Current status:";
-  ps auxww | head -n 1
-  ps auxww | grep -i CrashPlanService | grep ^root;
-}
-
 # path
 export PATH="/usr/local/bin:$PATH:~/bin"
 alias op="open *.tmproj || mate ."
