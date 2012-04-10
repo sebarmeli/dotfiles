@@ -4,6 +4,7 @@ alias op="open *.tmproj || mate ."
 
 # TextMate
 # alias op="open *.tmproj || mate ."
+alias st='open -a "/Applications/Sublime Text 2.app"'
 
 # let more key combos get through iterm to vim, etc.
 # http://groups.google.com/group/iterm2-discuss/browse_thread/thread/47700851d59386fb?pli=1
