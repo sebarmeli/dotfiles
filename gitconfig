@@ -7,3 +7,4 @@
 	tool = vimdiff
 [color]
 	diff = auto
+	ui = true

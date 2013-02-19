@@ -1,6 +1,8 @@
 # path
 export PATH="/usr/local/bin:$PATH:~/bin"
+export PATH=$PATH:"/usr/local/sbin"
 alias op="open *.tmproj || mate ."
+alias dbrep='mysql -ureadonly -pdevR3@donly -h10.112.120.42' 
 
 # TextMate
 # alias op="open *.tmproj || mate ."
