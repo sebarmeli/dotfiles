@@ -41,7 +41,7 @@ syntax enable
 
 "" Color scheme
 set background=dark
-colorscheme solarized
+colorscheme base16-eighties
 
 " Misc
 set wildmode=longest,list,full
@@ -64,7 +64,7 @@ map , \
 vnoremap < <gv
 vnoremap > >gv
 
-" AUTOMATIC SAVING 
+" AUTOMATIC SAVING
 au FocusLost * silent! wa   " FocusLost only works in GUI vim (and for CTRL-Z)
 " au WinLeave,TabLeave * silent! wa
 " set autowriteall   " on buffer switch
