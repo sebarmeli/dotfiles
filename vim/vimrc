@@ -7,6 +7,9 @@ filetype plugin on
 " Start pathogen for managing plugins, etc.
 call pathogen#infect()
 
+" Powerline
+let g:Powerline_symbols = 'fancy'
+
 " New vim
 set nocompatible
 
@@ -18,7 +21,7 @@ set bs=2
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set smartindent
+set autoindent
 
 " Don't automatically insert linebreaks in long lines
 set wrap linebreak textwidth=0
@@ -69,20 +72,12 @@ au FocusLost * silent! wa   " FocusLost only works in GUI vim (and for CTRL-Z)
 " au WinLeave,TabLeave * silent! wa
 " set autowriteall   " on buffer switch
 
-" Command-T settings
-let g:CommandTMatchWindowReverse=1
-let g:CommandTMaxHeight=15
-map <leader>t :CommandTFlush<cr>\|:CommandT<cr>
-
 " NERDTree settings
 let g:NERDTreeChDirMode=2
-map <leader>r :NERDTreeFind<cr>
+map <Leader>r :NERDTreeFind<cr>
 
 " Keyboard mappings
 map <Leader>n :NERDTree<CR>
-
-" minibufexplorer
-let g:miniBufExplMapWindowNavVim = 1
 
 " Highligh trailing white spaces on non-insert mode
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -92,11 +87,12 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " Strip trailing whitespace (,ss)
-" function! StripWhitespace()
-" let save_cursor = getpos(".")
-" let old_query = getreg('/')
-" :%s/\s\+$//e
-" call setpos('.', save_cursor)
-" call setreg('/', old_query)
-" endfunction
-" noremap <F2> :call StripWhitespace()<CR>
+function! StripWhitespace()
+ let save_cursor = getpos(".")
+ let old_query = getreg('/')
+ :%s/\s\+$//e
+ call setpos('.', save_cursor)
+ call setreg('/', old_query)
+endfunction
+
+noremap <F2> :call StripWhitespace()<CR>

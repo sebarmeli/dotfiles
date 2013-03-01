@@ -1,5 +1,5 @@
 [submodule "vim/bundle/ctrlp"]
-	path = vim/bundle/ctrlp
+	path = vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "vim/bundle/vim-powerline"]
 	path = vim/bundle/vim-powerline
