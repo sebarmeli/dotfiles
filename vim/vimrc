@@ -44,7 +44,7 @@ set laststatus=2
 " Syntax highlighting
 syntax enable
 
-"" Color scheme
+" Color scheme
 set background=dark
 colorscheme base16-eighties
 
@@ -62,6 +62,9 @@ set term=xterm-256color
 " System clipboard sharing
 set clipboard=unnamed
 
+" Show the filename in the window titlebar
+set title
+
 " Leader and friends
 map , \
 
@@ -75,8 +78,10 @@ au FocusLost * silent! wa   " FocusLost only works in GUI vim (and for CTRL-Z)
 " set autowriteall   " on buffer switch
 
 " NERDTree settings
+let NERDTreeWinSize=35
 silent! map <F3> :NERDTreeFind<cr>
 let g:NERDTreeMapActivateNode="<F3>"
+let g:NERDTreeMapPreview="<F4>"
 
 " Highligh trailing white spaces on non-insert mode
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -86,12 +91,9 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " Strip trailing whitespace (,ss)
-function! StripWhitespace()
- let save_cursor = getpos(".")
- let old_query = getreg('/')
- :%s/\s\+$//e
- call setpos('.', save_cursor)
- call setreg('/', old_query)
-endfunction
+noremap <F2> :set et<CR>:retab!<CR>:%s/[\r \t]\+$//<CR>
 
-noremap <F2> :call StripWhitespace()<CR>
+" Generate tags on current folder
+map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+nnoremap <c-]> g<c-]>
+vnoremap <c-]> g<c-]>
