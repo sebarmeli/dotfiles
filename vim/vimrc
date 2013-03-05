@@ -8,6 +8,8 @@ filetype plugin on
 call pathogen#infect()
 
 " Powerline
+set encoding=utf-8
+set guifont=Monaco-Powerline
 let g:Powerline_symbols = 'fancy'
 
 " New vim
@@ -73,11 +75,8 @@ au FocusLost * silent! wa   " FocusLost only works in GUI vim (and for CTRL-Z)
 " set autowriteall   " on buffer switch
 
 " NERDTree settings
-let g:NERDTreeChDirMode=2
-map <Leader>r :NERDTreeFind<cr>
-
-" Keyboard mappings
-map <Leader>n :NERDTree<CR>
+silent! map <F3> :NERDTreeFind<cr>
+let g:NERDTreeMapActivateNode="<F3>"
 
 " Highligh trailing white spaces on non-insert mode
 highlight ExtraWhitespace ctermbg=red guibg=red
