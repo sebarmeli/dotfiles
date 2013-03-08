@@ -52,6 +52,11 @@ colorscheme base16-eighties
 set wildmode=longest,list,full
 set wildmenu
 
+" Custom filetype, syntax mappings
+au BufRead,BufNewFile *.rep setfiletype rep syntax=ruby
+au BufRead,BufNewFile *.json setfiletype json syntax=javascript
+autocmd Filetype js set textwidth=80
+
 " Mouse support
 set mouse=a
 set ttymouse=xterm2   " Allows mouse dragging
